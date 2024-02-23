@@ -21,7 +21,7 @@ html
                     for n in allblogs 
                         li
                             div.blog
-                                img(src=`${n.blogimage}`,width=200,height=200)
+                                img(src=`${n.blogimage.url}`,width=200,height=200)
                                 div
                                     h2=n.title
                                     button(id=`${n._id}`,class="forpost") View 

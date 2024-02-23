@@ -7,7 +7,7 @@ const {comments}=require("../models/comments");
 const router=express.Router();
 const multer  = require('multer');
 const path=require("path");
-const uploadpath=path.join(__dirname,"../static/uploads");
+const uploadpath=path.join(__dirname,"../uploads");
 let blogwanted;
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -57,10 +57,14 @@ router.get("/blogpage",checkauth,async (req,res)=>{
   
   const blogshow=await blogs.find({_id:blogwanted});
   let blog_user_id;
-  if(blogshow.length!==0)  blog_user_id=blogshow[0].created_by;
+  if(blogshow.length!==0)
+  {
+    blog_user_id=blogshow[0].created_by;
+  }
   
   const commentshow=await comments.find({blog_id:blogwanted});
   
+ 
   if(User_id && blog_user_id && User_id==blog_user_id)
   {
     return res.render("blogpage",{blogcont:blogshow,commentscontent:commentshow,delete_blog:{key:blogwanted},check:{active:true}});

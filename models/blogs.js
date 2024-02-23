@@ -6,7 +6,12 @@ const blogschema=new mongoose.Schema(
         type:String
         },
         blogimage:{
-            type:String,
+            public_id:{
+                type:String
+            },
+            url:{
+                type:String
+            }
         },
         body:{
             type:String

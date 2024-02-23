@@ -4,12 +4,13 @@
   "description": "Blog website",
   "main": "app.js",
   "scripts": {
-    "start":"node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Saurabh Chauhan",
   "license": "ISC",
   "dependencies": {
+    "cloudinary": "^2.0.1",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "mongoose": "^8.1.3",

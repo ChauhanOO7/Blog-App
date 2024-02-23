@@ -18,7 +18,7 @@ html
                 div.blogcontent
                     for n in blogcont
                         h1=n.title
-                        img(src=`${n.blogimage}`,width=800,height=450)
+                        img(src=`${n.blogimage.url}`,width=800,height=450)
                         p=n.body
                     if check.active===true
                         button(id=`${delete_blog.key}`,class="Deleteblog")  Delete Blog
