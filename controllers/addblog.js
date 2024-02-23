@@ -10,7 +10,7 @@ async function makeblog(req,res)
 
     try
     {
-        imagelocation=await cloud.uploader.upload(`./tmp/${!req.file ? "bloggify.jpg" : req.file.filename}`,
+        imagelocation=await cloud.uploader.upload(`/tmp/${!req.file ? "bloggify.jpg" : req.file.filename}`,
         {
             folder:"images"
         
