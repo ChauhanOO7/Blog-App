@@ -1,5 +1,5 @@
 const express=require("express");
-const {makeblog}=require("../controllers/addblog");
+const {makeblog,setvalue}=require("../controllers/addblog");
 const {checklogin,checkauth}=require("../controllers/login");
 const {getUser}=require("../services/mapping");
 const {blogs}=require("../models/blogs");
@@ -7,18 +7,18 @@ const {comments}=require("../models/comments");
 const router=express.Router();
 const multer  = require('multer');
 const path=require("path");
-const uploadpath=path.join(__dirname,"../tmp");
+// const uploadpath=path.join(__dirname,"../tmp");
 let blogwanted;
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, uploadpath)
-    },
-    filename: function (req, file, cb) {
-      cb(null,`${Date.now()}-${file.originalname}`)
-    }
-  });
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, uploadpath)
+//     },
+//     filename: function (req, file, cb) {
+//       cb(null,`${Date.now()}-${file.originalname}`)
+//     }
+//   });
 
-const upload=multer({storage:storage});
+// const upload=multer({storage:storage});
 
 
 router.get("/",async (req,res)=>{
@@ -73,7 +73,7 @@ router.get("/blogpage",checkauth,async (req,res)=>{
   return res.render("blogpage",{blogcont:blogshow,commentscontent:commentshow,check:{active:false}});
 });
 
-router.post("/addblog",upload.single("file"),checklogin,makeblog);
+router.post("/addblog",checklogin,makeblog);
 
 router.post("/addcomments",checklogin,async (req,res)=>{
 
@@ -94,6 +94,8 @@ router.post("/deleteblog",async (req,res)=>{
 
     return res.redirect(301,"/");
 });
+
+router.post("/valueimg",setvalue);
 
 
 module.exports=router;

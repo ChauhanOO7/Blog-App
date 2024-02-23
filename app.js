@@ -1,6 +1,7 @@
 const express=require("express");
 const path=require("path");
 const favicon=require("serve-favicon");
+const bodyParser=require("body-parser");
 const multer  = require('multer');
 const cookieparser=require("cookie-parser");
 const mongoose=require("mongoose");
@@ -26,6 +27,7 @@ mongoose.connect(database_url).then(()=>{
 
 //middlewares
 app.use(favicon(path.join(__dirname,'static','images','favicon.ico')));
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use("/static",express.static(staticpath));
 app.set("view engine","pug");
 app.set("views",viewpath);

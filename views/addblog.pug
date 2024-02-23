@@ -18,6 +18,9 @@ html
                 form(action="/addblog",method="post"  enctype="multipart/form-data")
                     input(type="text",name="title",placeholder="Title")
                     Label Image :
-                        input(type="file",name="file")
+                        input(type="file",name="file",id="uploaded")
                     textarea(type="text",name="content",placeholder="Write content for your Blog...")
                     button(type="submit")  Submit
+
+    script 
+        include ../static/ind.js

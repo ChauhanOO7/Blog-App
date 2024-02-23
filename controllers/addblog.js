@@ -1,6 +1,13 @@
 const {blogs}=require("../models/blogs");
 const cloud=require("../cloudinary");
 
+let uRl;
+
+async function setvalue(req,res)
+{
+    uRl=req.body.image_id;
+}
+
 async function makeblog(req,res)
 {
     const data=req.body;
@@ -10,7 +17,8 @@ async function makeblog(req,res)
 
     try
     {
-        imagelocation=await cloud.uploader.upload(`/tmp/${!req.file ? "bloggify.jpg" : req.file.filename}`,
+
+        imagelocation=await cloud.uploader.upload(!uRl ? "./static/images/bloggify.jpg" :uRl,
         {
             folder:"images"
         
@@ -35,7 +43,7 @@ async function makeblog(req,res)
         console.error(error);
         if(error.message==="Request Timeout")
         {
-            res.send("Request Timeout... Try after Sometime...")
+            res.send("Request Timeout... Try after Sometime...");
         }
     }
     return res.redirect(301,"/");
@@ -43,4 +51,5 @@ async function makeblog(req,res)
 }
 
 
-module.exports={makeblog};
+
+module.exports={makeblog,setvalue};
