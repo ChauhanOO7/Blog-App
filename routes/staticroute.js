@@ -7,7 +7,7 @@ const {comments}=require("../models/comments");
 const router=express.Router();
 const multer  = require('multer');
 const path=require("path");
-const uploadpath=path.join(__dirname,"../uploads");
+const uploadpath=path.join(__dirname,"../tmp");
 let blogwanted;
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
