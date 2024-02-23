@@ -1,0 +1,32 @@
+doctype 
+html 
+    head 
+        title  Blog
+        style 
+            include ../static/home.css
+    body
+        div.container
+            nav.navbar
+                img(src="../static/images/blog.png",width=100,height=100)
+                h1  Blogosphere Bliss
+                ul.ullist
+                    li: a(href="/") Home 
+                    li: a(href="/about") About
+                a(href="/login"): button LOGIN
+                a(href="/signup"): button SIGNUP
+            
+            div.content
+                h1 Blogs
+                ul.bloglist 
+                    for n in allblogs 
+                        li
+                            div.blog
+                                img(src=`${n.blogimage}`,width=200,height=200)
+                                div
+                                    h2=n.title
+                                    button(id=`${n._id}`,class="forpost") View 
+
+
+        script 
+            include ../static/index.js
+
