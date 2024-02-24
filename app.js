@@ -2,7 +2,6 @@ const express=require("express");
 const path=require("path");
 const favicon=require("serve-favicon");
 const bodyParser=require("body-parser");
-const multer  = require('multer');
 const cookieparser=require("cookie-parser");
 const mongoose=require("mongoose");
 const app=express();

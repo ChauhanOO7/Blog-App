@@ -5,7 +5,6 @@ const {getUser}=require("../services/mapping");
 const {blogs}=require("../models/blogs");
 const {comments}=require("../models/comments");
 const router=express.Router();
-const multer  = require('multer');
 const path=require("path");
 let blogwanted;
 
