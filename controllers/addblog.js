@@ -12,6 +12,18 @@ async function setvalue(req,res)
 
 async function makeblog(req,res)
 {
+    let start=0,end=4;
+    await new Promise((resolve) => {
+        const interval = setInterval(() => {
+            if (start===end) {
+                clearInterval(interval);
+                resolve();
+            }
+            start++;
+        }, 1000);
+
+    });
+    
     const data=req.body;
 
     let Title="No Title";
