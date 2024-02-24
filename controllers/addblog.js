@@ -25,7 +25,6 @@ async function makeblog(req,res)
             folder:"images"
         
         });
-    
 
         if(data.title) Title=data.title;
         const blog=blogs({
