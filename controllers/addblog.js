@@ -1,11 +1,14 @@
 const {blogs}=require("../models/blogs");
-const cloud=require("../cloudinary");
+const cloudinary=require("../cloudinary");
 
 let uRl;
 
 async function setvalue(req,res)
 {
-    uRl=req.body.image_id;
+    uRl= req.body.image_id;
+
+    return res.json({uriii:uRl});
+        
 }
 
 async function makeblog(req,res)
@@ -18,7 +21,7 @@ async function makeblog(req,res)
     try
     {
 
-        imagelocation=await cloud.uploader.upload(!uRl ? "./static/images/bloggify.jpg" :uRl,
+        imagelocation=await cloudinary.uploader.upload(!uRl ? "./static/images/bloggify.jpg" :uRl,
         {
             folder:"images"
         

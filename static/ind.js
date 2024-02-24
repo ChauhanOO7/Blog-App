@@ -19,9 +19,6 @@ uploaded_file.addEventListener("change",()=>{
             })
         }
         const response=await fetch("/valueimg",options);
-        if(response.redirected)
-        {
-            window.location.href=response.url;
-        }
+    
     });
 });
