@@ -18,7 +18,7 @@ uploaded_file.addEventListener("change",()=>{
                 image_id:url
             })
         }
-        const response=await fetch("/valueimg",options);
+        const response=fetch("/valueimg",options);
     
     });
 });
