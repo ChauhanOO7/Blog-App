@@ -2,7 +2,6 @@ const logout=document.querySelector("#logout");
 const view=document.querySelector(".content");
 view.addEventListener("click",async (e)=>{
 
-    console.log(e.target)
     if(e.target.classList.contains('forpost'))
     {
     
@@ -23,6 +22,7 @@ view.addEventListener("click",async (e)=>{
     
     }
 });
+
 logout.addEventListener("click",async (e)=>{
 
     let cookie=document.cookie;
@@ -30,7 +30,6 @@ logout.addEventListener("click",async (e)=>{
     document.cookie=cookie;
 
     const response=await fetch("/");
-
     window.location.href=response.url;
 
 });

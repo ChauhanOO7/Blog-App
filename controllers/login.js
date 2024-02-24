@@ -21,11 +21,10 @@ async function handlelogin(req,res)
 async function checklogin(req,res,next)
 {
     const Uid=req.cookies?.uid;
-    console.log(Uid,"hey");
+
     if(!Uid)    return res.redirect(301,"/login");
-    console.log(Uid,"hey");
     const user=getUser(Uid);
-    console.log(user);
+    
     if(!user)   return res.redirect(301,"/login");
 
     req.user=user;
