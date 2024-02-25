@@ -31,7 +31,7 @@ app.use("/static",express.static(staticpath));
 app.set("view engine","pug");
 app.set("views",viewpath);
 app.use(express.urlencoded({ limit: '200mb', extended: true }));
-app.use(express.json());
+app.use(express.json({ limit: '200mb' }));
 app.use(cookieparser());
 
 //routing
