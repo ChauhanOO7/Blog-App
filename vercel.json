@@ -12,7 +12,9 @@
             "dest": "/app.js"
         }
     ],
-    "limits": {
-      "maxPayloadSize": "200mb"
+    "functions": {
+      "api": {
+        "maxPayloadSize": "200mb"
+      }
     }
 }
