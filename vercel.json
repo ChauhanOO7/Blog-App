@@ -11,5 +11,8 @@
             "src": "/(.*)",
             "dest": "/app.js"
         }
-    ]
+    ],
+    "limits": {
+      "maxPayloadSize": "200mb"
+    }
 }
