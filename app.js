@@ -26,12 +26,12 @@ mongoose.connect(database_url).then(()=>{
 
 //middlewares
 app.use(favicon(path.join(__dirname,'static','images','favicon.ico')));
-app.use(bodyParser.json({ limit: '200mb' }));
+app.use(bodyParser.json({ limit: '1000mb' }));
 app.use("/static",express.static(staticpath));
 app.set("view engine","pug");
 app.set("views",viewpath);
-app.use(express.urlencoded({ limit: '200mb', extended: true }));
-app.use(express.json({ limit: '200mb' }));
+app.use(express.urlencoded({ limit: '1000mb', extended: true }));
+app.use(express.json({ limit: '1000mb' }));
 app.use(cookieparser());
 
 //routing
